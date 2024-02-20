@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator m-auto bg-dark py-4 rounded-3 mt-5 theme border">
+        <div class="container">
+            <input class="mt-3 w-100 text-end fs-1 bg-dark text-white" type="text" name="result" value="0">
+        </div>
+        <div class="row mt-3 mx-2">
+            <div class="col">
+                <button id="clear" class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="clearDisplay()">AC</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button">DE</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion('.')">.</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion('/')">/</button>
+            </div>
+        </div>
+        <div class="row mt-3 mx-2">
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion(7)">7</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion(8)">8</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion(9)">9</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion('*')">x</button>
+            </div>
+        </div>
+        <div class="row mt-3 mx-2">
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white  theme" role="button"
+                    onclick="typeQuestion(4)">4</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion(5)">5</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion(6)">6</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white  theme" role="button"
+                    onclick="typeQuestion('-')">-</button>
+            </div>
+        </div>
+        <div class="row mt-3 mx-2">
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white  theme" role="button"
+                    onclick="typeQuestion(1)">1</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion(2)">2</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion(3)">3</button>
+            </div>
+            <div class="col">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion('+')">+</button>
+            </div>
+        </div>
+        <div class="row mt-3 mx-2">
+            <div class="col-3">
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="typeQuestion('00')">00</button>
+            </div>
+            <div class="col-3">
+                <button class="rounded text-center box-shadow-white bg-dark text-white  theme" role="button"
+                    onclick="typeQuestion(0)">0</button>
+            </div>
+            <div class="col-6">
+                <button class="rounded text-center box-shadow-white bg-dark text-white w-100  theme" role="button"
+                    onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mt-5">
+        <button class="btn bg-yellow" onclick="theme('bg-yellow')">Yellow</button>
+        <button class="btn bg-blue" onclick="theme('bg-blue')">Blue</button>
+        <button class="btn bg-orange" onclick="theme('bg-orange')">Orange</button>
+        <button class="btn bg-green" onclick="theme('bg-green')">Green</button>
+        <button class="btn bg-white border" onclick="theme('bg-white')">White</button>
+    </div>
+
+    <script>
+        var result = 0;
+        function clearDisplay() {
+            result = ''
+            document.querySelector("input[name='result']").value = result;
+        }
+
+        function typeQuestion(value = "") {
+
+            result = "" + result + value
+            document.querySelector("input[name='result']").value = result;
+        }
+
+        function calculate() {
+            result = eval(result);
+            document.querySelector("input[name='result']").value = result;
+        }
+
+        // function theme(color) {
+        //     var calculator = document.getElementsByClassName('theme');
+        //     calculator.classList.remove('bg-yellow', 'bg-blue', 'bg-orange', 'bg-green', 'bg-white', 'bg-dark');
+        //     calculator.classList.add(color);
+        // }
+        function theme(color) {
+        var calculators = document.getElementsByClassName('theme');
+        for (var i = 0; i < calculators.length; i++) {
+            var calculator = calculators[i];
+            calculator.classList.remove('bg-yellow', 'bg-blue', 'bg-orange', 'bg-green', 'bg-white', 'bg-dark');
+            calculator.classList.add(color);
+        }
+    }
+
+
+    </script>
+</body>
+
+</html>
