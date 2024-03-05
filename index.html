@@ -20,7 +20,8 @@
                     onclick="clearDisplay()">AC</button>
             </div>
             <div class="col">
-                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button">DE</button>
+                <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
+                    onclick="popString()">DE</button>
             </div>
             <div class="col">
                 <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
@@ -46,7 +47,7 @@
             </div>
             <div class="col">
                 <button class="rounded text-center box-shadow-white bg-dark text-white theme" role="button"
-                    onclick="typeQuestion('*')">x</button>
+                    onclick="typeQuestion('x')">x</button>
             </div>
         </div>
         <div class="row mt-3 mx-2">
@@ -122,6 +123,7 @@
         }
 
         function calculate() {
+            result = result.replace('x', '*')
             result = eval(result);
             document.querySelector("input[name='result']").value = result;
         }
@@ -132,13 +134,21 @@
         //     calculator.classList.add(color);
         // }
         function theme(color) {
-        var calculators = document.getElementsByClassName('theme');
-        for (var i = 0; i < calculators.length; i++) {
-            var calculator = calculators[i];
-            calculator.classList.remove('bg-yellow', 'bg-blue', 'bg-orange', 'bg-green', 'bg-white', 'bg-dark');
-            calculator.classList.add(color);
+            var calculators = document.getElementsByClassName('theme');
+            for (var i = 0; i < calculators.length; i++) {
+                var calculator = calculators[i];
+                calculator.classList.remove('bg-yellow', 'bg-blue', 'bg-orange', 'bg-green', 'bg-white', 'bg-dark');
+                calculator.classList.add(color);
+            }
         }
-    }
+
+
+        function popString() {
+            result = result.slice(0, -1)
+            console.log('working')
+            document.querySelector("input[name='result']").value = result;
+
+        }
 
 
     </script>
